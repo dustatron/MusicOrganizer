@@ -43,10 +43,6 @@ namespace MusicOrganizer.Tests
 
       Artist result = Artist.Find(1);
 
-      // List<Artist> listResult = Artist.GetAll();
-      // foreach()
-
-
       Assert.AreEqual(newArtist2, result);
     }
 
@@ -63,6 +59,19 @@ namespace MusicOrganizer.Tests
 
       Assert.AreEqual(newName, result.Name);
 
+    }
+    [TestMethod]
+    public void Delete_WillDeleteArtistFromList_Void()
+    {
+      Artist artist0 = new Artist("Can", "KrautRock");
+      Artist artist1 = new Artist("Prince", "Pop");
+
+      List<Artist> testList = new List<Artist> { artist0 };
+
+      Artist.Delete(1);
+      List<Artist> result = Artist.GetAll();
+
+      CollectionAssert.AreEqual(testList, result);
     }
   }
 }

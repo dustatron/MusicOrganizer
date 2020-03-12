@@ -48,5 +48,10 @@ namespace MusicOrganizer.Models
       result.Name = artistName;
       result.Genre = genre;
     }
+    public static void Delete(int id)
+    {
+      Artist toRemove = Find(id);
+      _instances.Remove(toRemove);
+    }
   }
 }

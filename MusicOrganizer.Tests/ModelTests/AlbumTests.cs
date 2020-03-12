@@ -70,8 +70,6 @@ namespace MusicOrganizer.Tests
       List<Album> testList = new List<Album> { album0, album3 };
       List<Album> result = Album.GetAll();
 
-
-
       CollectionAssert.AreEqual(testList, result);
     }
   }
