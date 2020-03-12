@@ -18,8 +18,35 @@ namespace MusicOrganizer.Models
       _instances.Add(this);
       Id = _count++;
       Albums = new List<Album> { };
-
     }
 
+    public static List<Artist> GetAll()
+    {
+      return _instances;
+    }
+    public static void ClearAll()
+    {
+      _count = 0;
+      _instances.Clear();
+    }
+
+    public static Artist Find(int id)
+    {
+      foreach (Artist artist in _instances)
+      {
+        if (artist.Id == id)
+        {
+          return artist;
+        }
+      }
+      return _instances[0];
+    }
+
+    public static void Update(int id, string artistName, string genre)
+    {
+      Artist result = Find(id);
+      result.Name = artistName;
+      result.Genre = genre;
+    }
   }
 }
