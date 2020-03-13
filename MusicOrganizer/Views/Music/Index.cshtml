@@ -1,3 +1,22 @@
 @{
   Layout = "_Layout";
 }
+<h1>Music list here</h1>
+@if(Model.Count == 0)
+{
+  <p>List is empty</p>
+}
+else
+{
+  @foreach (var item in Model)
+  {
+      <p>@item.Name</p>
+      <p>@item.Genre</p>
+      <p>Number of albums = @item.Albums.Count</p>
+      <a href="/artist/@item.Id/album/new"><Button class="btn btn-success btn-lg">Add Album</Button></a> 
+      <a href="/artist/@item.Id"><Button class="btn btn-info btn-lg">Details</Button></a> 
+      <hr>
+  }
+}
+
+<a href="/artist/new">Add an Artist</a>

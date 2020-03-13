@@ -1,3 +1,26 @@
 @{
   Layout = "_Layout";
 }
+<h1>Artist Details</h1>
+<p>@Model["Artist"].Name</p>
+<p>@Model["Artist"].Genre</p>
+<p>Number of albums = @Model["Albums"].Count</p>
+
+@foreach (var item in Model["Albums"])
+{
+  <p><a href='/artist/@Model["Artist"].Id/album/@item.Id/show'>@item.Title</a></p>
+  <p>@item.Year</p>
+  <p>@item.Label</p>
+  <p>@item.Img</p>
+  <hr>
+}
+
+<a href='/artist/@Model["Artist"].Id/album/new'><button type="submit" class="btn btn-info">Add Album</button></a>
+  
+
+<a href='/artist/@Model["Artist"].Id/Edit'><button type="submit" class="btn btn-success">Edit</button></a>
+
+<form action='/artist/delete/@Model["Artist"].Id' method="post">
+  <a href="#"><Button class="btn btn-danger btn-lg">Delete</Button></a> 
+</form>
+  

@@ -1,3 +1,19 @@
 @{
   Layout = "_Layout";
 }
+
+
+<div class="col-md-6 offset-md-3">
+  <h2 class="text-center">Edit Album Details</h2>
+  <form action="/artist/update/@Model.Id" method="post">
+  <div class="form-group">
+    <label for="artistName">Name</label>
+    <input type="text" name="artistName" class="form-control" value="@Model.Name">
+  </div>
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" class="form-control" value="@Model.Genre">
+  </div>
+  <button type="submit" class="btn btn-info btn-block">Update</button>
+  </form>
+</div>

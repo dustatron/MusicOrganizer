@@ -1,0 +1,8 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Show Album</h1>
+@Model["album"].Title
+
+<a href='/artist/@Model["artist"]/album/@Model["album"].Id/edit'>Edit</a>

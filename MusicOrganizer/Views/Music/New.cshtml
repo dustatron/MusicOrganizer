@@ -1,3 +1,19 @@
 @{
   Layout = "_Layout";
 }
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Add New Artist</h1>
+    <form action="/artist/create" method="post">
+      <div class="form-group">
+        <label for="artistName">Artist Name</label>
+        <input type="text" name="artistName" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Add</button>
+    </form>
+  </div>
+</div>

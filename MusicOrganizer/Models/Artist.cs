@@ -53,5 +53,45 @@ namespace MusicOrganizer.Models
       Artist toRemove = Find(id);
       _instances.Remove(toRemove);
     }
+
+    public static void AddAlbum(int id, Album newAlbum)
+    {
+      Artist artist = Find(id);
+      artist.Albums.Add(newAlbum);
+
+    }
+
+    public static List<Album> GetAlbumsList(int id)
+    {
+      Artist artist = Find(id);
+      List<Album> newAlbumList = artist.Albums;
+      return newAlbumList;
+
+    }
+    public static Album GetAlbum(int artistId, int AlbumId)
+    {
+      List<Album> albumList = GetAlbumsList(artistId);
+      Album result = albumList[0];
+      foreach (var item in albumList)
+      {
+        if (AlbumId == item.Id)
+        {
+          return item;
+        }
+
+      }
+      return result;
+    }
+
+    public static void UpdateAlbum(int artistId, int albumId, string title, int year, string label, string img)
+    {
+      Album album = GetAlbum(artistId, albumId);
+      album.Title = title;
+      album.Year = year;
+      album.Label = label;
+      album.Img = img;
+
+
+    }
   }
 }
